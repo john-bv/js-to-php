@@ -1,3 +1,3 @@
-# ts-to-php
-Typescript to PHP compiler made in deno.
+# js-to-php
+Javascript/Typescript to PHP compiler made in deno.
 

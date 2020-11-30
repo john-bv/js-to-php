@@ -31,7 +31,7 @@ export class Numeric extends SpecialToken {
                 break;
             }
         }
-        tokens.push(new Token('Numeric', number, false));
+        tokens.push(new Token('Numeric', number, false, cursor.pos));
         return true;
     }
 }
@@ -148,7 +148,7 @@ export class KeyWord extends SpecialToken {
             cursor.pos = cachedPos;
             return false;
         } else {
-            tokens.push(new Token('KeyWord', keyword, false));
+            tokens.push(new Token('KeyWord', keyword, false, cursor.pos));
             return true;
         }
     }
@@ -163,7 +163,7 @@ export class StringLiteral extends Token {
         let str: string = cursor.peek();
 
         if ((this.value as RegExp).test(str) && char === str) {
-            tokens.push(new Token('StringLiteral', "", false));
+            tokens.push(new Token('StringLiteral', "", false, cursor.pos));
             return;
         }
 
@@ -188,7 +188,7 @@ export class StringLiteral extends Token {
                 curr = iter.next();
             }
         }
-        tokens.push(new Token('StringLiteral', str, false));
+        tokens.push(new Token('StringLiteral', str, false, cursor.pos));
     }
 }
 
